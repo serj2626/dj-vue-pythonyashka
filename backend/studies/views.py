@@ -1,4 +1,4 @@
-from .serializers import LevelSerializer
+from .serializers import LevelSerializer, LevelDetailSerializer
 from .models import Level, Subject, Lesson
 from rest_framework import generics, mixins
 from rest_framework.response import Response
@@ -11,8 +11,5 @@ class LevelListView(generics.ListAPIView):
 
 class LevelDetailView(generics.RetrieveAPIView):
     queryset = Level.objects.all()
-
-
-class SubjectListView(generics.ListAPIView):
-    queryset = Subject.objects.all()
-    serializer_class = LevelSerializer
+    serializer_class = LevelDetailSerializer
+    lookup_field = 'slug'

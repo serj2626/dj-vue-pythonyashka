@@ -10,6 +10,11 @@ const router = createRouter({
       component: () => import('../views/HomeView.vue')
     },
     {
+      path: '/:slug',
+      name: 'level',
+      component: () => import('../views/LevelView.vue')
+    },
+    {
       path: '/posts',
       name: 'posts',
       component: () => import('../views/PostListView.vue')

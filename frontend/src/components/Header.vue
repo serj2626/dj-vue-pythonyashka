@@ -12,13 +12,19 @@ onMounted(async () => {
 
 <template>
   <div class="container mt-5 mx-auto">
-    <div class="row">
-      <div class="mx-auto text-center">
-        <img src="@/assets/python.jpg" width="300" height="auto" />
+    <div class="row mx-auto">
+      <div class="text-center">
+        <RouterLink :to="{ name: 'home' }">
+           <img src="@/assets/python.jpg" width="366" height="auto" />
+        </RouterLink>
+       
       </div>
       <div class="d-flex mt-3">
         <div v-for="level in levels" :key="level.id">
-          <button class="btn btn-primary py-3 px-2">{{ level.title }}</button>
+          <RouterLink :to="{ name: 'level', params: { slug: level.slug } }">
+            <button class="btn btn-primary py-3 px-2">{{ level.title }}</button>
+          </RouterLink>
+
         </div>
       </div>
     </div>
@@ -36,7 +42,7 @@ button {
 }
 
 button:hover {
-  transition: all 0.6s ease;
+  transition: all 0.8s ease;
   transform: scale(1.1);
 }
 </style>

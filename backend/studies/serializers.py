@@ -6,24 +6,30 @@ from .models import Level, Subject, Lesson
 class LevelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Level
-        fields = ("title", "slug", 'id', )
-
-
-class LevelDetailWithSubjectsSerializer(serializers.ModelSerializer):
-    subjects = serializers.SerializerMethodField()
-
-    class Meta:
-        model = Level
-        fields = ("title", "slug", 'id', "subjects", )
-
-    def get_subjects(self, obj):
-        return SubjectSerializer(obj.subjects.all(), many=True).data
+        fields = (
+            "title",
+            "slug",
+            "id",
+        )
 
 
 class SubjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Subject
-        fields = ("title", "level", "slug")
+        fields = ("id", "title",  "slug")
+
+
+class LevelDetailSerializer(serializers.ModelSerializer):
+    subjects = SubjectSerializer(many=True)
+
+    class Meta:
+        model = Level
+        fields = (
+            "title",
+            "slug",
+            "id",
+            "subjects",
+        )
 
 
 # class LessonSerializer(serializers.ModelSerializer):
