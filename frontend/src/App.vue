@@ -9,21 +9,18 @@ import Header from './components/Header.vue';
       <Header />
     </header>
     <main>
-
+      <RouterView />
     </main>
     <footer>
 
     </footer>
   </div>
 
-  <RouterView />
+
 </template>
 
 <style scoped>
-.app {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  height: 100vh;
+.app{
+    min-height: 100vh;
 }
 </style>

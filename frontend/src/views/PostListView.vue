@@ -5,7 +5,7 @@ import { ref, onMounted } from 'vue';
 <template>
   <div class="container">
     <div class="alert alert-warning" role="alert">
-      Главная страница
+      Страница о постах
     </div>
   </div>
 

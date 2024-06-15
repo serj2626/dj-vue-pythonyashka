@@ -28,13 +28,14 @@ class Level(models.Model):
     class Meta:
         verbose_name = 'Уровень'
         verbose_name_plural = 'Уровни'
+        ordering = ['level_number']
 
 
 class Subject(models.Model):
     title = models.CharField(
         max_length=355, verbose_name='Тема', unique=True)
     level = models.ForeignKey(
-        Level, on_delete=models.CASCADE, verbose_name='Уровень')
+        Level, on_delete=models.CASCADE, related_name='subjects', verbose_name='Уровень')
     slug = models.SlugField(unique=True, blank=True)
 
     def __str__(self):
@@ -47,6 +48,7 @@ class Subject(models.Model):
     class Meta:
         verbose_name = 'Тема'
         verbose_name_plural = 'Темы'
+        
 
 
 class Lesson(models.Model):
