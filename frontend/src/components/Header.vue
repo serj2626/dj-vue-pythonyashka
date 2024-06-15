@@ -3,7 +3,6 @@ import { RouterLink } from "vue-router";
 import { ref, onMounted } from "vue";
 import axios from "axios";
 
-
 const levels = ref([]);
 onMounted(async () => {
   const response = await axios.get("/api/levels");
@@ -14,7 +13,6 @@ onMounted(async () => {
 <template>
   <div class="container mt-3 mx-auto">
     <div class="row mx-auto">
-
       <div class="text-center">
         <RouterLink :to="{ name: 'home' }">
           <img src="@/assets/python.jpg" width="366" height="auto" />
@@ -26,29 +24,41 @@ onMounted(async () => {
 
       <div class="d-flex justify-content-center mt-3">
         <div v-for="level in levels" :key="level.id">
-          <RouterLink :to="{ name: 'level', params: { slug: level.slug } }">
-            <button class="btn btn-primary py-3 px-2 fs-5">{{ level.title }}</button>
+          <RouterLink
+            class="btn-link btn"
+            :to="{ name: 'level', params: { slug: level.slug } }"
+          >
+            {{ level.title }}
           </RouterLink>
         </div>
       </div>
-
     </div>
   </div>
 </template>
 
 <style scoped>
-button {
+.btn-link {
+  text-align: center;
+  text-decoration: none;
+  padding: 20px 20px;
+  color: white;
+  font-size: 18px;
+  margin: 15px;
   width: 260px;
-  height: 120px;
-  margin: 10px;
+  height: 100px;
   font-weight: 600;
+  display: inline-flex;
+
+  justify-content: center;
+  align-items: center;
+
   background: linear-gradient(90deg, #ba4e55 0%, #ab09ec 100%);
 
-}
-
-button:hover {
-  transition: all 0.8s ease;
-  transform: scale(1.1);
+  &:hover {
+    transition: all 1s ease;
+    transform: scale(1.1);
+    color: yellow;
+  }
 }
 
 .header-title {
@@ -56,5 +66,13 @@ button:hover {
   font-weight: 700;
   color: #ba4e55;
   font-family: "Courier New", Courier, monospace;
+}
+.router-link-exact-active {
+  color: rgb(238, 238, 8);
+}
+
+img:hover {
+  transition: all 1s ease;
+  transform: scale(1.1);
 }
 </style>

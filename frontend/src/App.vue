@@ -4,6 +4,8 @@ import Header from './components/Header.vue';
 </script>
 
 <template>
+
+
   <div class="app container-fluid">
     <header>
       <Header />
@@ -12,19 +14,19 @@ import Header from './components/Header.vue';
       <div class="container">
         <RouterView />
       </div>
-      
+
     </main>
     <footer>
 
     </footer>
   </div>
 
-
 </template>
 
 <style scoped>
-.app{
-    min-height: 100vh;
+
+.app {
+  min-height: 100vh;
 }
 
 /* .app {
