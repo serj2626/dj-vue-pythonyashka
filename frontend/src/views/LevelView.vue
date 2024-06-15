@@ -17,25 +17,24 @@ onMounted(getLevel);
 watchEffect(() => {
   getLevel();
 });
-
-
 </script>
 
 <template>
   <div class="container">
     <div class="row">
-      <div class="alert alert-warning text-center" role="alert">
-        {{ level.title }}
+      <div class="text-center my-5" role="alert">
+        <span class="fs-4">{{ level.title }}</span>
       </div>
-      <div
-        class="list col-2 mx-auto mt-5"
-        v-for="subject in level.subjects"
-        :key="subject.id"
-      >
-      <RouterLink class="link" to="{ name: 'home'}">
-        {{ subject.title }}
-      </RouterLink>
-      </div>
+    </div>
+    <div class="row">
+      <ol class="grid">
+        <li v-for="subject in level.subjects" :key="subject.id">
+            
+            <RouterLink class="link-subject">
+               {{ subject.title }} 
+            </RouterLink>
+        </li>
+      </ol>
     </div>
   </div>
 </template>
@@ -43,5 +42,21 @@ watchEffect(() => {
 <style scoped>
 .list {
   margin: 10px;
+}
+
+.link-subject {
+  text-decoration: none;
+  font-size: 20px;
+
+  &:hover {
+    color: red;
+  }
+}
+
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
 }
 </style>
