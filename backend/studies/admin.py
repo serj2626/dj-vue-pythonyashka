@@ -22,8 +22,8 @@ class SubjectAdmin(admin.ModelAdmin):
 class LevelAdmin(admin.ModelAdmin):
     '''Admin View for Level)'''
 
-    list_display = ('title', 'slug', )
-
+    list_display = ('title','level_number', 'slug', )
+    list_editable = ('level_number', )
 
 @admin.register(Lesson)
 class LessonAdmin(admin.ModelAdmin):

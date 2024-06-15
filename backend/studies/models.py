@@ -1,12 +1,13 @@
 from django.db import models
 from django_ckeditor_5.fields import CKEditor5Field
-
+from pytils.translit import slugify
 
 # level 1 - Start in Python
 # level 2 - OOP
 # level 3 - Algorithms and Data Structures
 # level 4 - Frameworks
 # level 5 - Async
+
 
 def get_path_for_photos(instance, filename):
     return f'studies/lessons/{instance.slug}/{filename}'
@@ -15,12 +16,13 @@ def get_path_for_photos(instance, filename):
 class Level(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True, blank=True)
+    level_number = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return self.title
 
     def save(self, *args, **kwargs):
-        self.slug = self.slug or str(self.title).lower()
+        self.slug = self.slug or slugify(self.title)
         super().save(*args, **kwargs)
 
     class Meta:
@@ -39,7 +41,7 @@ class Subject(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        self.slug = self.slug or str(self.title).lower()
+        self.slug = self.slug or slugify(self.title)
         super().save(*args, **kwargs)
 
     class Meta:
@@ -61,7 +63,7 @@ class Lesson(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        self.slug = self.slug or str(self.title).lower()
+        self.slug = self.slug or slugify(self.title)
         super().save(*args, **kwargs)
 
     class Meta:
