@@ -15,9 +15,14 @@ const router = createRouter({
       component: () => import('../views/LevelView.vue')
     },
     {
-      path: '/subject/:subject_slug',
+      path: '/subjects/:subject_slug',
       name: 'subject',
       component: () => import('../views/SubjectDetail.vue')
+    },
+    {
+      path: '/lessons/:slug',
+      name: 'lesson',
+      component: () => import('../views/LessonDetail.vue')
     },
     {
       path: '/posts',

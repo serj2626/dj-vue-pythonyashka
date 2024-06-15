@@ -26,4 +26,11 @@ import Header from './components/Header.vue';
 .app{
     min-height: 100vh;
 }
+
+/* .app {
+    margin: 50px;
+    background-color: #ffffff;
+    height: 90vh;
+    border-radius: 15px;
+} */
 </style>

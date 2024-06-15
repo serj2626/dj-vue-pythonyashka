@@ -40,7 +40,22 @@ class LevelDetailSerializer(serializers.ModelSerializer):
         )
 
 
-# class LessonSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Lesson
-#         fields = ('title', 'slug', 'description', 'photo', 'subject', )
+class SubjectForLessonSerializer(serializers.ModelSerializer):
+    level = LevelSerializer(many=False)
+
+    class Meta:
+        model = Subject
+        fields = (
+            "title",
+            "slug",
+            "id",
+            "level",
+        )
+
+
+class LessonSerializer(serializers.ModelSerializer):
+    subject = SubjectForLessonSerializer(many=False)
+
+    class Meta:
+        model = Lesson
+        fields = ('title', 'slug', 'description', 'photo', 'subject',)
