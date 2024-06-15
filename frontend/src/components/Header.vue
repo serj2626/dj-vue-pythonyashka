@@ -38,8 +38,8 @@ onMounted(async () => {
 
 <style scoped>
 button {
-  width: 222px;
-  height: 90px;
+  width: 260px;
+  height: 120px;
   margin: 10px;
   font-weight: 600;
   background: linear-gradient(90deg, #ba4e55 0%, #ab09ec 100%);

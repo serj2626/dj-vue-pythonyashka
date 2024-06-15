@@ -20,7 +20,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div class="container">
+
     <div class="row">
       <div class="text-center my-5" role="alert">
         <span class="fs-4">{{ level.title }}</span>
@@ -30,13 +30,15 @@ watchEffect(() => {
       <ol class="grid">
         <li v-for="subject in level.subjects" :key="subject.id">
             
-            <RouterLink class="link-subject">
-               {{ subject.title }} 
+            <RouterLink class="link-subject" 
+         :to="{ name: 'subject', params: { subject_slug: subject.slug } }"
+            >
+               {{ subject.title }}
             </RouterLink>
         </li>
       </ol>
     </div>
-  </div>
+
 </template>
 
 <style scoped>

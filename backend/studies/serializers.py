@@ -13,10 +13,18 @@ class LevelSerializer(serializers.ModelSerializer):
         )
 
 
+class LessonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Lesson
+        fields = ("id", 'title', 'slug', )
+
+
 class SubjectSerializer(serializers.ModelSerializer):
+    lessons = LessonSerializer(many=True)
+
     class Meta:
         model = Subject
-        fields = ("id", "title",  "slug")
+        fields = ("id", "title", "level", "slug", "lessons")
 
 
 class LevelDetailSerializer(serializers.ModelSerializer):

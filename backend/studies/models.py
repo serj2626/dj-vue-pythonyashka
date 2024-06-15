@@ -10,7 +10,7 @@ from pytils.translit import slugify
 
 
 def get_path_for_photos(instance, filename):
-    return f'studies/lessons/{instance.slug}/{filename}'
+    return f"studies/lessons/{instance.slug}/{filename}"
 
 
 class Level(models.Model):
@@ -26,16 +26,16 @@ class Level(models.Model):
         super().save(*args, **kwargs)
 
     class Meta:
-        verbose_name = 'Уровень'
-        verbose_name_plural = 'Уровни'
-        ordering = ['level_number']
+        verbose_name = "Уровень"
+        verbose_name_plural = "Уровни"
+        ordering = ["level_number"]
 
 
 class Subject(models.Model):
-    title = models.CharField(
-        max_length=355, verbose_name='Тема', unique=True)
+    title = models.CharField(max_length=355, verbose_name="Тема", unique=True)
     level = models.ForeignKey(
-        Level, on_delete=models.CASCADE, related_name='subjects', verbose_name='Уровень')
+        Level, on_delete=models.CASCADE, related_name="subjects", verbose_name="Уровень"
+    )
     slug = models.SlugField(unique=True, blank=True)
 
     def __str__(self):
@@ -46,20 +46,21 @@ class Subject(models.Model):
         super().save(*args, **kwargs)
 
     class Meta:
-        verbose_name = 'Тема'
-        verbose_name_plural = 'Темы'
-        
+        verbose_name = "Тема"
+        verbose_name_plural = "Темы"
 
 
 class Lesson(models.Model):
-    title = models.CharField(max_length=355, verbose_name='Название')
+    title = models.CharField(max_length=355, verbose_name="Название")
     slug = models.SlugField(unique=True, blank=True)
     description = CKEditor5Field(
-        verbose_name='Полное описание', config_name='extends')
+        verbose_name="Полное описание", config_name="extends")
     photo = models.ImageField(
-        upload_to=get_path_for_photos, verbose_name='Фото', blank=True)
+        upload_to=get_path_for_photos, verbose_name="Фото", blank=True
+    )
     subject = models.ForeignKey(
-        Subject, on_delete=models.CASCADE, verbose_name='Тема')
+        Subject, related_name="lessons", on_delete=models.CASCADE, verbose_name="Тема"
+    )
 
     def __str__(self):
         return self.title
@@ -69,5 +70,5 @@ class Lesson(models.Model):
         super().save(*args, **kwargs)
 
     class Meta:
-        verbose_name = 'Урок'
-        verbose_name_plural = 'Уроки'
+        verbose_name = "Урок"
+        verbose_name_plural = "Уроки"
