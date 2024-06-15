@@ -52,7 +52,7 @@ button:hover {
 }
 
 .header-title {
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 700;
   color: #ba4e55;
   font-family: "Courier New", Courier, monospace;
