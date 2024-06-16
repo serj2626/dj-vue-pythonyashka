@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Level, Subject, Lesson
+from .models import Lesson, Level, Subject
 
 
 class LevelSerializer(serializers.ModelSerializer):
@@ -16,7 +16,11 @@ class LevelSerializer(serializers.ModelSerializer):
 class LessonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lesson
-        fields = ("id", 'title', 'slug', )
+        fields = (
+            "id",
+            "title",
+            "slug",
+        )
 
 
 class SubjectSerializer(serializers.ModelSerializer):
@@ -58,4 +62,10 @@ class LessonSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Lesson
-        fields = ('title', 'slug', 'description', 'photo', 'subject',)
+        fields = (
+            "title",
+            "slug",
+            "description",
+            "photo",
+            "subject",
+        )

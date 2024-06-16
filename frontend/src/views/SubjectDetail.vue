@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, watchEffect } from "vue";
+import { ref, onMounted } from "vue";
 import axios from "axios";
 import { useRoute } from "vue-router";
 
@@ -28,18 +28,16 @@ onMounted(getSubject);
 </script>
 
 <template>
-    <div class="row">
-        <div class="text-center my-5" role="alert">
-            <span class="fs-4">{{ subject }}</span>
-        </div>
+    <div class="alert alert-warning" role="alert">
+        {{ subject }}
     </div>
+
+
     <div class="row">
         <ol class="grid">
             <li v-for="lesson in lessons" :key="lesson.id">
 
-                <RouterLink 
-                :to="{ name: 'lesson', params: { slug: lesson.slug } }"
-                class="link-subject">
+                <RouterLink :to="{ name: 'lesson', params: { slug: lesson.slug } }" class="link-subject">
                     {{ lesson.title }}
                 </RouterLink>
             </li>
@@ -47,3 +45,13 @@ onMounted(getSubject);
     </div>
 
 </template>
+
+<style scoped>
+.link-subject {
+    text-decoration: none;
+
+    &:hover {
+        color: red;
+    }
+}
+</style>

@@ -2,8 +2,9 @@
 
 import django.db.models.deletion
 import django_ckeditor_5.fields
-import studies.models
 from django.db import migrations, models
+
+import studies.models
 
 
 class Migration(migrations.Migration):

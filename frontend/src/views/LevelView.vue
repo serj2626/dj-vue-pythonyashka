@@ -20,12 +20,10 @@ watchEffect(() => {
 </script>
 
 <template>
-
-    <div class="row">
-      <div class="text-center my-5" role="alert">
-        <span class="fs-4">{{ level.title }}</span>
-      </div>
+    <div class="alert alert-warning" role="alert">
+      {{ level.title }}
     </div>
+
     <div class="row">
       <ol class="grid">
         <li v-for="subject in level.subjects" :key="subject.id">

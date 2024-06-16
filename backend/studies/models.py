@@ -53,8 +53,7 @@ class Subject(models.Model):
 class Lesson(models.Model):
     title = models.CharField(max_length=355, verbose_name="Название")
     slug = models.SlugField(unique=True, blank=True)
-    description = CKEditor5Field(
-        verbose_name="Полное описание", config_name="extends")
+    description = CKEditor5Field(verbose_name="Полное описание", config_name="extends")
     photo = models.ImageField(
         upload_to=get_path_for_photos, verbose_name="Фото", blank=True
     )

@@ -31,7 +31,6 @@ const getLesson = async () => {
         level.slug = response.data.subject.level.slug
         subject.title = response.data.subject.title
         subject.slug = response.data.subject.slug
-        console.log(lesson);
     } catch {
         console.log('error');
     }
@@ -41,8 +40,9 @@ onMounted(getLesson);
 </script>
 
 
-<template>
-    <div class="alert alert-warning" role="alert">
+<template">
+
+<div class="alert alert-warning" role="alert">
         Тема {{ subject.title }} ||  Уровень {{ level.title }}
     </div>
     <div class="row">
@@ -56,5 +56,7 @@ onMounted(getLesson);
     <div class="row">
         <p v-html="lesson.description"></p>
     </div>
+
+    
 
 </template>

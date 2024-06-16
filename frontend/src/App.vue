@@ -6,12 +6,12 @@ import Header from './components/Header.vue';
 <template>
 
 
-  <div class="app container-fluid">
+  <div class="app">
     <header>
       <Header />
     </header>
     <main>
-      <div class="container">
+      <div class="container-fluid">
         <RouterView />
       </div>
 
