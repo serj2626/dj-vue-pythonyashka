@@ -14,8 +14,9 @@ onMounted(async () => {
   <div class="container mt-3 mx-auto">
     <div class="row mx-auto">
       <div class="text-center">
+        
         <RouterLink :to="{ name: 'home' }">
-          <img src="@/assets/python.jpg" width="366" height="auto" />
+          <img src="@/assets/python.png" width="366" height="auto" />
         </RouterLink>
       </div>
       <div class="text-center mt-2">
