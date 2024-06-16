@@ -40,7 +40,7 @@ onMounted(getLesson);
 </script>
 
 
-<template">
+<template>
 
 <div class="alert alert-warning" role="alert">
         Тема {{ subject.title }} ||  Уровень {{ level.title }}

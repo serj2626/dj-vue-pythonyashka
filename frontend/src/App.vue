@@ -11,7 +11,7 @@ import Header from './components/Header.vue';
       <Header />
     </header>
     <main>
-      <div class="container-fluid">
+      <div class="container">
         <RouterView />
       </div>
 

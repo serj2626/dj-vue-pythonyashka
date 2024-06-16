@@ -2,12 +2,6 @@ from django.db import models
 from django_ckeditor_5.fields import CKEditor5Field
 from pytils.translit import slugify
 
-# level 1 - Start in Python
-# level 2 - OOP
-# level 3 - Algorithms and Data Structures
-# level 4 - Frameworks
-# level 5 - Async
-
 
 def get_path_for_photos(instance, filename):
     return f"studies/lessons/{instance.slug}/{filename}"
