@@ -31,8 +31,8 @@ onMounted(getTagWithPosts);
 
 <template>
     <div class="row">
-        <div class="alert alert-warning text-center" role="alert">
-            Тег {{ tag }} | Количество постов: {{ posts.length }}
+        <div class="alert alert-warning" role="alert">
+            Тема {{ tag }} || Количество постов: {{ posts.length }}
         </div>
     </div>
     <div class="row">
