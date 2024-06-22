@@ -28,7 +28,14 @@ onMounted(getTags);
   </div>
   <div class="row">
     <div class="col-md-2 mt-3" v-for="tag in tags" :key="tag">
-      <button class="btn btn-primary btn-tag">{{ tag.title }}</button>
+      <RouterLink
+        :to="{
+          name: 'tag',
+          params: { slug: tag.slug },
+        }"
+      >
+        <button class="btn btn-primary btn-tag">{{ tag.title }}</button>
+      </RouterLink>
     </div>
   </div>
 </template>
