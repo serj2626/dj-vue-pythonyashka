@@ -2,8 +2,11 @@
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
 import { useToast } from 'vue-toastification';
-import { useRoute } from 'vue-router';
+import { useRoute,useRouter } from 'vue-router';
+
+
 const route = useRoute();
+const router = useRouter();
 const { slug } = route.params
 
 const toast = useToast();
@@ -34,7 +37,10 @@ onMounted(getTagWithPosts);
     </div>
     <div class="row">
         <div class="col-md-4" v-for="post in posts" :key="post.id">
-            <div class="post" role="alert">
+            <div 
+            @click="$router.push({ name: 'post', 
+            params: { slug: post.slug } })"
+            class="post" role="alert">
                 {{ post.title }}
             </div>
         </div>
@@ -42,7 +48,7 @@ onMounted(getTagWithPosts);
 </template>
 
 <style scoped>
-.post{
+.post {
     margin: 10px;
     padding: 10px;
     background: linear-gradient(90deg, #3099df 0%, #0c7f83 100%);
@@ -53,7 +59,7 @@ onMounted(getTagWithPosts);
     box-shadow: 20px 15px 5px rgba(0, 0, 0, 0.5);
 }
 
-.post:hover{
+.post:hover {
     cursor: pointer;
     transition-duration: 0.8s;
     transform: scale(1.1);

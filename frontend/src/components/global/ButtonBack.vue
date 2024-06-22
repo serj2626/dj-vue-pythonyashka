@@ -9,3 +9,15 @@ const router = useRouter();
 <template>
     <button @click="router.go(-1)">Назад</button>
 </template>
+
+<style scoped>
+button{
+    padding: 15px 20px;
+    font-size: 18px;
+    border: none;
+    color: white;
+    border-radius: 20px;
+    background-color: red;
+}
+
+</style>

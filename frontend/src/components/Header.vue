@@ -2,6 +2,7 @@
 import { RouterLink } from "vue-router";
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import ButtonBack from "./global/ButtonBack.vue";
 
 const levels = ref([]);
 onMounted(async () => {
@@ -12,6 +13,7 @@ onMounted(async () => {
 
 <template>
   <div class="container mt-3 mx-auto">
+    <ButtonBack class="back" />
     <div class="row mx-auto">
       <div class="text-center">
         <RouterLink :to="{ name: 'home' }">
@@ -37,6 +39,11 @@ onMounted(async () => {
 </template>
 
 <style scoped>
+.back{
+  position: absolute;
+  top: 80px;
+  left: 90%;
+}
 .btn-link {
   text-align: center;
   text-decoration: none;

@@ -20,13 +20,13 @@ onMounted(getTags);
 
 <template>
   <div class="row">
-    <div class="alert alert-warning" role="alert">Главная страница</div>
+    <div class="alert alert-warning my-5" role="alert">Главная страница</div>
 
     <div>
-      <h1 class="text-center">Полезные статьи</h1>
+      <h1 class="text-center mt-2">Полезные статьи</h1>
     </div>
   </div>
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-md-2 mt-3" v-for="tag in tags" :key="tag">
       <RouterLink
         :to="{
@@ -43,5 +43,6 @@ onMounted(getTags);
 .btn-tag {
   padding: 10px 20px;
   font-size: 18px;
+  width: 100%;
 }
 </style>
