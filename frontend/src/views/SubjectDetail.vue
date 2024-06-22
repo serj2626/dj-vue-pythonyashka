@@ -12,7 +12,6 @@ const getSubject = async () => {
         const response = await axios.get(
             `/api/subjects/${route.params.subject_slug}`
         );
-        console.log(response.data);
         lessons.value = response.data.lessons;
         subject.value = response.data.title
 

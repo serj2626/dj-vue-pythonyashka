@@ -7,5 +7,5 @@ const router = useRouter();
 
 
 <template>
-    <button><RouterLink :to="{ name: 'home' }">Назад</RouterLink></button>
+    <button @click="router.go(-1)">Назад</button>
 </template>

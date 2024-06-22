@@ -24,16 +24,12 @@ import Header from './components/Header.vue';
 </template>
 
 <style scoped>
-/* .app {
-  min-height: 100vh;
-} */
-
 .app {
-    margin: 50px;
-    background-color: rgb(251, 238, 243);
+    margin: 60px;
+    background-color: rgb(238, 210, 221);
     min-height: 90vh;
     border-radius: 15px;
     padding: 30px;
-    box-shadow: 35px 25px 12px rgba(0, 0, 0, 0.5);
+    box-shadow: 35px 25px 12px rgba(0, 0, 0, 0.5); 
 } 
 </style>

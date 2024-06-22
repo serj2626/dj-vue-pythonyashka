@@ -3,16 +3,6 @@ from rest_framework import serializers
 from .models import Post, Tag
 
 
-class TagSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Tag
-        fields = (
-            "title",
-            "slug",
-        )
-
-
 class PostForTagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
@@ -25,6 +15,17 @@ class TagDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
         fields = ("title", "slug", "posts")
+
+
+class TagSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Tag
+        fields = (
+            "id",
+            "title",
+            "slug",
+        )
 
 
 class PostSerializer(serializers.ModelSerializer):

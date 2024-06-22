@@ -14,9 +14,8 @@ onMounted(async () => {
   <div class="container mt-3 mx-auto">
     <div class="row mx-auto">
       <div class="text-center">
-        
         <RouterLink :to="{ name: 'home' }">
-          <img src="@/assets/python.png" width="366" height="auto" />
+          <img src="@/assets/python.png" title="Домой" width="366" height="auto" />
         </RouterLink>
       </div>
       <div class="text-center mt-2">
@@ -72,8 +71,11 @@ onMounted(async () => {
   color: rgb(238, 238, 8);
 }
 
+img{
+  transition-duration: 0.8s;
+}
+
 img:hover {
-  transition: all 1s ease;
   transform: scale(1.1);
 }
 </style>
