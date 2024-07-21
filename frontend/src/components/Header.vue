@@ -17,7 +17,12 @@ onMounted(async () => {
     <div class="row mx-auto">
       <div class="text-center">
         <RouterLink :to="{ name: 'home' }">
-          <img src="@/assets/python.png" title="Домой" width="366" height="auto" />
+          <img
+            src="@/assets/python.png"
+            title="Домой"
+            width="300"
+            height="auto"
+          />
         </RouterLink>
       </div>
       <div class="text-center mt-2">
@@ -39,7 +44,7 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.back{
+.back {
   position: absolute;
   top: 80px;
   left: 90%;
@@ -55,14 +60,13 @@ onMounted(async () => {
   height: 100px;
   font-weight: 600;
   display: inline-flex;
-
+  transition: all 1s ease;
   justify-content: center;
   align-items: center;
 
   background: linear-gradient(90deg, #ba4e55 0%, #ab09ec 100%);
 
   &:hover {
-    transition: all 1s ease;
     transform: scale(1.1);
     color: yellow;
   }
@@ -72,17 +76,17 @@ onMounted(async () => {
   font-size: 26px;
   font-weight: 700;
   color: #ba4e55;
-  font-family: "Courier New", Courier, monospace;
 }
 .router-link-exact-active {
   color: rgb(238, 238, 8);
 }
 
-img{
-  transition-duration: 0.8s;
+img {
+  transition: all 0.5s ease-in;
 }
 
 img:hover {
   transform: scale(1.1);
+  filter: brightness(110%);
 }
 </style>
